@@ -34,4 +34,21 @@ public class Radio {
         }
         this.radioVolumeControl = radioVolumeControl;
     }
+
+    public void next() {
+        if (radioStationNumber != 9) {
+            radioStationNumber++;
+            return;
+        }
+        radioStationNumber = 0;
+    }
+
+    public void prev() {
+        if (radioStationNumber != 0) {
+            radioStationNumber--;
+        } else {
+            radioStationNumber = 9;
+
+        }
+    }
 }
