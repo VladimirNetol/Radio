@@ -3,6 +3,16 @@ package ru.netology.radio.service;
 public class Radio {
 
     private int radioStationNumber;
+    private int radioVolumeControl;
+    private int allStations;
+
+    public Radio() {
+        this.allStations = 9;
+    }
+
+    public Radio(int cheangeStation) {
+        this.allStations = cheangeStation - 1;
+    }
 
     public int getRadioStationNumber() {
         return radioStationNumber;
@@ -13,13 +23,11 @@ public class Radio {
         if (radioStationNumber < 0) {
             return;
         }
-        if (radioStationNumber > 9) {
+        if (radioStationNumber > allStations) {
             return;
         }
         this.radioStationNumber = radioStationNumber;
     }
-
-    private int radioVolumeControl;
 
     public int getRadioVolumeControl() {
         return radioVolumeControl;
@@ -36,7 +44,7 @@ public class Radio {
     }
 
     public void next() {
-        if (radioStationNumber != 9) {
+        if (radioStationNumber != allStations) {
             radioStationNumber++;
             return;
         }
@@ -47,7 +55,7 @@ public class Radio {
         if (radioStationNumber != 0) {
             radioStationNumber--;
         } else {
-            radioStationNumber = 9;
+            radioStationNumber = allStations;
 
         }
     }
